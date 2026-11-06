@@ -9,11 +9,34 @@
 @use "../tokens" as *;
 @use "../mixins" as *;
 
+// .pagina es el "padre" del grid
 .pagina {
   min-height: 100dvh;
+  // .pagina pasa a ser un contenedor grid
+  display: grid; // sus hijos directos pasan a ser elementos del grid
+  grid-template-columns: 1fr; // un sola columna en movil
+  grid-template-areas: // dibujo el mapa con palabras , como en movil es solo 1 columna lo dejo asi
+    "cabecera"
+    "heroe"
+    "principal"
+    "consejos"
+    "pie";
+}
+
+// Los hijos en orden
+
+// grid-area para colocarlos en esa zona que indiquemos
+
+.cabecera {
+  grid-area: cabecera;
+}
+
+.heroe {
+  grid-area: heroe;
 }
 
 .principal {
+  grid-area: principal;
   padding: clamp(1rem, 0.5rem + 2vw, 2.5rem); // 👀 A4 · relleno fluido (ya resuelto)
 }
 
@@ -22,11 +45,13 @@
 }
 
 .consejos {
+  grid-area: consejos;
   padding: clamp(1rem, 0.5rem + 2vw, 2.5rem); // 👀 A4 · relleno fluido (ya resuelto)
   background: var(--color-superficie);
 }
 
 .pie {
+  grid-area: pie;
   padding: $space-md;
   text-align: center;
   color: var(--color-sobre-marca);
@@ -34,5 +59,34 @@
 
   a {
     color: inherit;
+  }
+}
+
+// TABLET -> $bp-md cpn dso columnas
+
+// Lo de arriba es para el movil, aqui sobreescribo lo que cambia apartir de este ancho
+// uso el mixin que tengo en _mixins.scss
+
+@include desde($bp-md){
+  .pagina{
+    // 1fr se queda con todo el espacio sobrante, se estira
+    // 18rem es con ese ancho fijo, yo lo elijo
+    grid-template-columns: 1fr 18rem; 
+    // ahora tienes dos palabras porque meto dos columnas
+    // si una zona ocupa dos columnas repito el nombre
+    grid-template-areas: 
+      "cabecera  cabecera"
+      "heroe     heroe"
+      "principal consejos" // como me pide el ejercicio
+      "pie       pie";
+  }
+}
+
+// ESCRITORIO -> desde $bp-lg (1000px) tope de ancho y centrada
+
+@include desde($bp-lg){
+  .pagina{
+    max-width: 75rem; // tope en rem para q se adapte al tamaño de letra del usuario
+    margin-inline: auto; // margen automatico en ambos lados y se centra el bloque, asi deja de crecer
   }
 }
