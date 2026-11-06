@@ -7,17 +7,17 @@
 @use "../mixins" as *;
 
 .destacados {
+
   display: grid;
 
-  @media (max-width: 599px) {
-    grid-template-columns: 1fr;
-  }
+  // separacion entre tarjetas (filas y columnas)
+  gap: $space-md; // uso mi token $space-md
 
-  @include desde($bp-md) {
-    grid-template-columns: 1fr 1fr;
-  }
+  grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
+  // minmax(MINIMO, 1fr) -> cada columna mide como minimo MINIMO y max 1fr
+  // auto-fit -> mete tantas columnas como quepan en ese minimo
+  // repeat() -> repite esa columna las veces que haga falta
 
-  @include desde($bp-lg) {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+  // resultado -> en movil 1 colum, en tablet 2, en escritorio 3 o mas
+
 }
