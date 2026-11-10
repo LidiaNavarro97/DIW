@@ -7,7 +7,6 @@
 @use "../mixins" as *;
 
 .destacados {
-
   display: grid;
 
   // separacion entre tarjetas (filas y columnas)
@@ -19,5 +18,4 @@
   // repeat() -> repite esa columna las veces que haga falta
 
   // resultado -> en movil 1 colum, en tablet 2, en escritorio 3 o mas
-
 }

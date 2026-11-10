@@ -16,6 +16,7 @@
   display: grid; // sus hijos directos pasan a ser elementos del grid
   grid-template-columns: 1fr; // un sola columna en movil
   grid-template-areas: // dibujo el mapa con palabras , como en movil es solo 1 columna lo dejo asi
+
     "cabecera"
     "heroe"
     "principal"
@@ -67,14 +68,14 @@
 // Lo de arriba es para el movil, aqui sobreescribo lo que cambia apartir de este ancho
 // uso el mixin que tengo en _mixins.scss
 
-@include desde($bp-md){
-  .pagina{
+@include desde($bp-md) {
+  .pagina {
     // 1fr se queda con todo el espacio sobrante, se estira
     // 18rem es con ese ancho fijo, yo lo elijo
-    grid-template-columns: 1fr 18rem; 
+    grid-template-columns: 1fr 18rem;
     // ahora tienes dos palabras porque meto dos columnas
     // si una zona ocupa dos columnas repito el nombre
-    grid-template-areas: 
+    grid-template-areas:
       "cabecera  cabecera"
       "heroe     heroe"
       "principal consejos" // como me pide el ejercicio
@@ -84,8 +85,8 @@
 
 // ESCRITORIO -> desde $bp-lg (1000px) tope de ancho y centrada
 
-@include desde($bp-lg){
-  .pagina{
+@include desde($bp-lg) {
+  .pagina {
     max-width: 75rem; // tope en rem para q se adapte al tamaño de letra del usuario
     margin-inline: auto; // margen automatico en ambos lados y se centra el bloque, asi deja de crecer
   }

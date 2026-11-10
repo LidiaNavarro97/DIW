@@ -22,7 +22,8 @@
   background: var(--color-superficie);
 }
 
-.ficha__imagen{ // la iamgen ocupa todo el ancho de su columna
+.ficha__imagen {
+  // la iamgen ocupa todo el ancho de su columna
   width: 100%;
   height: auto;
   display: block;
@@ -42,11 +43,9 @@
   color: var(--color-marca);
 }
 
-@container (min-width: 30rem){
-
-  .ficha{
+@container (min-width: 30rem) {
+  .ficha {
     grid-template-columns: 12rem 1fr; //foto a la izq (12rem) y texto a la derecha
     align-items: start;
   }
-  
 }
