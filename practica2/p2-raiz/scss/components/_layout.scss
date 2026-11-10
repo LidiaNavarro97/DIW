@@ -1,5 +1,5 @@
 // _layout.scss — ✍️ A1 · el esqueleto de la página de inicio con Grid (el relleno fluido, A4, ya está puesto)
-//
+
 // ✍️ A1. La .pagina tiene cinco hijos: .cabecera, .heroe, .principal, .consejos y .pie.
 //    - En móvil (sin media query): un grid con grid-template-areas, una columna, en ese orden.
 //    - Desde $bp-md: dos columnas (la del principal se estira; la de los consejos, un ancho fijo en rem).
@@ -12,6 +12,7 @@
 // .pagina es el "padre" del grid
 .pagina {
   min-height: 100dvh;
+
   // .pagina pasa a ser un contenedor grid
   display: grid; // sus hijos directos pasan a ser elementos del grid
   grid-template-columns: 1fr; // un sola columna en movil
@@ -73,6 +74,7 @@
     // 1fr se queda con todo el espacio sobrante, se estira
     // 18rem es con ese ancho fijo, yo lo elijo
     grid-template-columns: 1fr 18rem;
+
     // ahora tienes dos palabras porque meto dos columnas
     // si una zona ocupa dos columnas repito el nombre
     grid-template-areas:
