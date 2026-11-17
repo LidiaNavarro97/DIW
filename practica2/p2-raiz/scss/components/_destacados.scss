@@ -9,8 +9,8 @@
   display: grid; // activa la rejilla
   // repeat(auto-fit): el navegador decide cuantas columnas caben
   // minmax(min(100%, 14rem), 1fr):
-  // mínimo: 14rem de ancho por tarjeta, pero nunca más que el 100% 
+  // mínimo: 14rem de ancho por tarjeta, pero nunca más que el 100%
   // máximo: 1fr,se reparten el espacio sobrante a partes iguales
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
-  gap: $space-md;// separación entre tarjetas
+  gap: $space-md; // separación entre tarjetas
 }

@@ -11,7 +11,7 @@
          los colores de RAÍZ (del @theme), dos columnas desde md y un botón con hover: y focus-visible:.
          Nada de valores sueltos entre corchetes ni style="". -->
 
-    <!-- la cabecera en movil, logo y menu en columna-->     
+    <!-- la cabecera en movil, logo y menu en columna-->
     <header class="bg-marca-oscuro text-white p-4 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
       <a class="text-xl font-bold" href="/">RAÍZ</a>
       <nav class="flex gap-4" aria-label="Principal">
@@ -37,25 +37,41 @@
             Nombre
             <input
               class="rounded-lg border border-marca bg-white p-2 font-normal focus-visible:outline-2 focus-visible:outline-tierra"
-              id="nombre" name="nombre" autocomplete="name" required />
+              id="nombre"
+              name="nombre"
+              autocomplete="name"
+              required
+            />
           </label>
           <label class="flex flex-col gap-1 font-semibold" for="correo">
             Correo
             <input
               class="rounded-lg border border-marca bg-white p-2 font-normal focus-visible:outline-2 focus-visible:outline-tierra"
-              id="correo" name="correo" type="email" autocomplete="email" required />
+              id="correo"
+              name="correo"
+              type="email"
+              autocomplete="email"
+              required
+            />
           </label>
           <label class="flex flex-col gap-1 font-semibold" for="mensaje">
             ¿En qué te ayudamos?
             <textarea
               class="rounded-lg border border-marca bg-white p-2 font-normal focus-visible:outline-2 focus-visible:outline-tierra"
-              id="mensaje" name="mensaje" rows="4" required></textarea>
+              id="mensaje"
+              name="mensaje"
+              rows="4"
+              required
+            ></textarea>
           </label>
           <!-- hover: cambia el color al pasar el ratón.
                focus-visible: dibuja el contorno de acento al llegar con el teclado -->
           <button
             class="cursor-pointer rounded-lg bg-marca px-4 py-2 font-semibold text-white hover:bg-marca-oscuro focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tierra"
-            type="submit">Enviar</button>
+            type="submit"
+          >
+            Enviar
+          </button>
         </form>
       </div>
     </main>
