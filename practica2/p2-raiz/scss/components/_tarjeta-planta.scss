@@ -6,3 +6,70 @@
 //    - los modificadores --oferta (que se note) y --agotada (la imagen en gris);
 //    - especificidad plana: una clase por selector (o .tarjeta-planta--mod .tarjeta-planta__elem). Sin etiquetas ni ids.
 @use "../tokens" as *;
+
+//El bloque, que este es el comun de todas las tarjetas
+.tarjeta-planta {
+  position: relative;
+  padding: $space-md; // espacio entre el borde y el contenido
+  border: 2px solid var(--color-marca); // borde normal, con el color de marca
+  border-radius: $radius-md; // esquinas redondeadas
+}
+
+// Los elementos cada parte de la tarjeta
+
+.tarjeta-planta__imagen {
+  display: block; // quita el hueco que las imágenes dejan debajo
+  width: 100%; // ocupa todo el ancho de la tarjeta
+  height: auto; // mantiene la proporción
+  border-radius: $radius-md;
+}
+
+.tarjeta-planta__nombre {
+  margin: $space-sm 0; // separa el nombre de la imagen y de la descripción
+}
+
+.tarjeta-planta__descripcion {
+  margin: 0 0 $space-sm; // solo margen abajo, para separar del precio
+}
+
+.tarjeta-planta__precio {
+  margin: 0 0 $space-sm; // separa el precio del botón
+  font-weight: 600; // el precio se ve más fuerte
+}
+
+.tarjeta-planta__boton {
+  width: 100%; // el botón ocupa todo el ancho de la tarjeta
+}
+
+// la etiqueta "oferta -20% agotada"
+.tarjeta-planta__etiqueta {
+  position: absolute; // flota sobre la imagen
+  top: $space-sm; // pegada arriba
+  right: $space-sm; // a la derecha
+  margin: 0; // quita el margen que trae el <p>
+  padding: $space-sm;
+  border-radius: $radius-md;
+  font-weight: 600;
+  color: var(--color-sobre-marca); // texto que se lee bien sobre el fondo
+  background: var(--color-marca-fuerte); // color por defecto
+}
+
+// los modificadores que son las variantes de la tarjeta con --
+
+.tarjeta-planta--oferta {
+  border-color: var(--color-acento); // solo cambia lo que es distinto que es el borde
+}
+
+// la tarjeta que esta en oferta
+.tarjeta-planta--oferta .tarjeta-planta__etiqueta {
+  background: var(--color-acento); // la etiqueta de oferta llama más la atención
+}
+
+// tarjera de agotada
+.tarjeta-planta--agotada {
+  opacity: 0.8;// toda la tarjeta se ve "apagada"
+}
+
+.tarjeta-planta--agotada .tarjeta-planta__imagen {
+  filter: grayscale(1); // 1 = totalmente gris y 0 seria un color normal
+}
