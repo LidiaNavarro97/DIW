@@ -1,5 +1,4 @@
 // _ficha.scss — ✍️ A3 · la ficha de una planta, que se adapta a SU HUECO (container query)
-
 // La ficha sale dos veces: en los consejos de inicio (un hueco estrecho) y en producto.html (un hueco ancho).
 // Ahora va SIEMPRE en fila, y en los consejos se aplasta.
 // ✍️ A3.
@@ -10,23 +9,14 @@
 
 .hueco-ficha {
   margin-bottom: $space-xl;
-  container-type: inline-size; // el navegador mide el ancho de este hueco
 }
 
 .ficha {
-  display: grid; // le quito el flex (siempre en fila)
-  grid-template-columns: 1fr; // una sola columna, la foto encima del texto
+  display: flex;
   gap: $space-md;
   overflow: hidden;
   border-radius: $radius-md;
   background: var(--color-superficie);
-}
-
-.ficha__imagen {
-  // la iamgen ocupa todo el ancho de su columna
-  width: 100%;
-  height: auto;
-  display: block;
 }
 
 .ficha__cuerpo {
@@ -41,11 +31,4 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-marca);
-}
-
-@container (min-width: 30rem) {
-  .ficha {
-    grid-template-columns: 12rem 1fr; // foto a la izq (12rem) y texto a la derecha
-    align-items: start;
-  }
 }

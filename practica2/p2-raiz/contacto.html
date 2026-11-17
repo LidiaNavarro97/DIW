@@ -6,47 +6,76 @@
     <title>Contacto · RAÍZ</title>
     <link rel="stylesheet" href="/src/tailwind.css" />
   </head>
-  <body>
+  <body class="min-h-screen bg-fondo text-texto flex flex-col">
     <!-- ✍️ B3 · Esta página va SOLO con Tailwind (src/tailwind.css), sin SASS. Ponle las clases de utilidad:
          los colores de RAÍZ (del @theme), dos columnas desde md y un botón con hover: y focus-visible:.
          Nada de valores sueltos entre corchetes ni style="". -->
-    <header>
-      <a href="/">RAÍZ</a>
-      <nav aria-label="Principal">
+
+    <!-- la cabecera en movil, logo y menu en columna-->
+    <header class="bg-marca-oscuro text-white p-4 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+      <a class="text-xl font-bold" href="/">RAÍZ</a>
+      <nav class="flex gap-4" aria-label="Principal">
         <a href="/">Inicio</a>
         <a href="/producto.html">Monstera</a>
-        <a href="/contacto.html" aria-current="page">Contacto</a>
+        <!-- La página actual va subrayada -->
+        <a class="underline" href="/contacto.html" aria-current="page">Contacto</a>
       </nav>
     </header>
 
-    <main>
-      <h1>Contacto</h1>
+    <main class="flex-1 w-full max-w-5xl mx-auto p-4 md:p-8">
+      <h1 class="text-3xl font-bold text-marca-oscuro mb-6">Contacto</h1>
 
-      <div>
-        <section aria-label="Dónde estamos">
-          <h2>El vivero</h2>
-          <p>Abrimos de lunes a sábado, de 9:00 a 14:00. Si vienes en persona, te ayudamos a elegir.</p>
-          <p>Envíos gratis desde 40 €</p>
+      <div class="grid gap-8 md:grid-cols-2">
+        <section class="bg-marca-suave p-6 rounded-lg" aria-label="Dónde estamos">
+          <h2 class="text-xl font-semibold text-marca-oscuro mb-2">El vivero</h2>
+          <p class="mb-2">Abrimos de lunes a sábado, de 9:00 a 14:00. Si vienes en persona, te ayudamos a elegir.</p>
+          <p class="font-semibold text-tierra">Envíos gratis desde 40 €</p>
         </section>
 
-        <form action="#">
-          <label for="nombre">
+        <form class="flex flex-col gap-4" action="#">
+          <label class="flex flex-col gap-1 font-semibold" for="nombre">
             Nombre
-            <input id="nombre" name="nombre" autocomplete="name" required />
+            <input
+              class="rounded-lg border border-marca bg-white p-2 font-normal focus-visible:outline-2 focus-visible:outline-tierra"
+              id="nombre"
+              name="nombre"
+              autocomplete="name"
+              required
+            />
           </label>
-          <label for="correo">
+          <label class="flex flex-col gap-1 font-semibold" for="correo">
             Correo
-            <input id="correo" name="correo" type="email" autocomplete="email" required />
+            <input
+              class="rounded-lg border border-marca bg-white p-2 font-normal focus-visible:outline-2 focus-visible:outline-tierra"
+              id="correo"
+              name="correo"
+              type="email"
+              autocomplete="email"
+              required
+            />
           </label>
-          <label for="mensaje">
+          <label class="flex flex-col gap-1 font-semibold" for="mensaje">
             ¿En qué te ayudamos?
-            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+            <textarea
+              class="rounded-lg border border-marca bg-white p-2 font-normal focus-visible:outline-2 focus-visible:outline-tierra"
+              id="mensaje"
+              name="mensaje"
+              rows="4"
+              required
+            ></textarea>
           </label>
-          <button type="submit">Enviar</button>
+          <!-- hover: cambia el color al pasar el ratón.
+               focus-visible: dibuja el contorno de acento al llegar con el teclado -->
+          <button
+            class="cursor-pointer rounded-lg bg-marca px-4 py-2 font-semibold text-white hover:bg-marca-oscuro focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tierra"
+            type="submit"
+          >
+            Enviar
+          </button>
         </form>
       </div>
     </main>
 
-    <footer>RAÍZ, vivero online · Cádiz</footer>
+    <footer class="bg-marca-oscuro text-white p-4 text-center">RAÍZ, vivero online · Cádiz</footer>
   </body>
 </html>
