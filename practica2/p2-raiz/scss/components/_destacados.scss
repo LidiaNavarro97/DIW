@@ -1,4 +1,5 @@
 // _destacados.scss — ✍️ A2 · la rejilla de las más vendidas, SIN media queries
+
 // Esto es lo que había: tres saltos escritos a mano (y uno, con max-width).
 // ✍️ A2. Rehazlo para que el propio Grid decida cuántas columnas caben:
 //    repeat(auto-fit, minmax(…)), con un mínimo que no desborde un móvil de 320 px, un gap, y ninguna media query.
@@ -6,11 +7,15 @@
 @use "../mixins" as *;
 
 .destacados {
-  display: grid; // activa la rejilla
-  // repeat(auto-fit): el navegador decide cuantas columnas caben
-  // minmax(min(100%, 14rem), 1fr):
-  // mínimo: 14rem de ancho por tarjeta, pero nunca más que el 100%
-  // máximo: 1fr,se reparten el espacio sobrante a partes iguales
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
-  gap: $space-md; // separación entre tarjetas
+  display: grid;
+
+  // separacion entre tarjetas (filas y columnas)
+  gap: $space-md; // uso mi token $space-md
+  grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
+
+  // minmax(MINIMO, 1fr) -> cada columna mide como minimo MINIMO y max 1fr
+  // auto-fit -> mete tantas columnas como quepan en ese minimo
+  // repeat() -> repite esa columna las veces que haga falta
+
+  // resultado -> en movil 1 colum, en tablet 2, en escritorio 3 o mas
 }
