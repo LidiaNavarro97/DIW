@@ -28,9 +28,25 @@
 @media print {
   .cabecera__nav,
   .boton,
-  .boletin {
+  .boletin,
+  .consejos,
+  .heroe__imagen { //quito al foto de portada
     display: none;
   }
+  .tarjeta-planta {
+    .tarjeta-planta__imagen {
+      display: none; //quito la foto de las tarjetas
+    }
+    .tarjeta-planta__descripcion{
+      display: none; //quito el pie , que he quitado la descripcion q es lo q me ha dicho el profesor
+    }
+    
+  }
+  .heroe__texto {
+    position: static;
+    background-color: none;
+  }
+  
 
   :root {
     --color-fondo: #{$white};
